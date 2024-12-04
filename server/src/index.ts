@@ -1,12 +1,10 @@
-import express, { Request, Response } from "express";
+import express from "express";
+import authRoutes from "./routes/auth.routes";
 
 const app = express();
 const port = 4000;
 
-app.get("/", (req: Request, res: Response) => {
-  res.send("Hello, TypeScript with Express!");
-});
-
+app.use('/api/auth', authRoutes)
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
 });
